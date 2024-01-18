@@ -41,7 +41,7 @@ export default function CarrinhoFooter() {
       }
       {
         etapaAtual?.etapa === 2
-          ? <div className="mt-4 flex gap-2">
+          ? <div className="mt-4 flex gap-3">
             <Button style="primary" text="Voltar" action={() => voltarEtapa(0)}></Button >
             <Button style="secondary" text="Continuar" action={endereco.cep !== '' ? () => concluiEtapa(1) : () => alteraMensagem('erro', 'Adicione o CEP antes de continuar.')}></Button >
           </div>
@@ -49,7 +49,7 @@ export default function CarrinhoFooter() {
       }
       {
         etapaAtual?.etapa === 3
-          ? <div className="mt-4">
+          ? <div className="mt-4 gap-3">
             <Button style="primary" text="Voltar" action={() => voltarEtapa(1)}></Button >
             <Button style="secondary" text="Finalizar" action={() => FinalizarPedido(carrinho, endereco)}></Button >
           </div>
