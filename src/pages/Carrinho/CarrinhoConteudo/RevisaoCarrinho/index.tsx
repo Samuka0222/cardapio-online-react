@@ -13,7 +13,7 @@ export default function RevisaoCarrinho() {
   const { carrinho } = contexto
 
   return (
-    <div className="h-full w-full flex flex-col mt-8">
+    <div className="h-full w-full flex flex-col mt-8 overflow-auto">
       <h2 className="text-xl text-black font-semibold">Seu carrinho: </h2>
       {carrinho.length === 0
         ? <main className="flex flex-col h-full w-full justify-center items-center mt-8">
@@ -24,7 +24,7 @@ export default function RevisaoCarrinho() {
         </main>
 
         : <main>
-          <ul className="flex flex-col gap-4 w-full box-content">
+          <ul className="flex flex-col gap-4 w-full box-content overflow-y-auto">
             {carrinho.map(item => <CarrinhoItem
               prato={item.prato}
               qtd={item.qtd}

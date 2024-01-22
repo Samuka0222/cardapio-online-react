@@ -18,7 +18,6 @@ export default function useMensagemContext() {
   }
 
   function gerarErro(texto: string) {
-    console.log('função foi chamada desnecessariamente.')
     setMensagem({
       tipo: 'erro',
       texto: texto

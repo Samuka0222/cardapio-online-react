@@ -3,17 +3,20 @@ import IEndereco from "@/interfaces/IEndereco";
 import axios from "axios";
 import { useContext } from "react"
 import useMensagemContext from "./useMensagemContext";
+import useEtapaContext from "./useEtapaContext";
 
 export default function useEnderecoContext() {
   const contextoEndereco = useContext(EnderecoContext);
   const contextoMensagem = useMensagemContext();
+  const contextoEtapa = useEtapaContext();
 
-  if (!contextoEndereco || !contextoMensagem) {
+  if (!contextoEndereco || !contextoMensagem || !contextoEtapa) {
     throw new Error('Não foi possível localizar o contexto');
   }
 
   const { endereco, setEndereco, enderecoValido, setEnderecoValido } = contextoEndereco;
   const { gerarErro } = contextoMensagem;
+  const { concluiEtapa } = contextoEtapa
 
   function alteraCampo(campo: string, valor: string | undefined) {
     setEndereco({ ...endereco, [campo]: valor });
@@ -33,6 +36,7 @@ export default function useEnderecoContext() {
       }
     }
     setEnderecoValido(true);
+    concluiEtapa(1);
   }
 
   async function buscaCep(cep: string) {

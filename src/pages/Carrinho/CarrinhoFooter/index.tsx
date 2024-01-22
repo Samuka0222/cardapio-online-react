@@ -20,7 +20,7 @@ export default function CarrinhoFooter() {
 
   const { etapaAtual, concluiEtapa, voltarEtapa } = contextoEtapa;
   const { valorCarrinho, carrinho } = contextoCarrinho;
-  const { endereco, enderecoValido, validaEndereco } = contextoEndereco;
+  const { endereco, validaEndereco } = contextoEndereco;
   const { gerarErro } = contextoMensagem
 
   return (
@@ -43,7 +43,7 @@ export default function CarrinhoFooter() {
         etapaAtual?.etapa === 2
           ? <div className="mt-4 flex gap-3">
             <Button style="primary" text="Voltar" action={() => voltarEtapa(0)}></Button >
-            <Button style="secondary" text="Continuar" action={enderecoValido ? () => concluiEtapa(1) : () => validaEndereco()}></Button >
+            <Button style="secondary" text="Continuar" action={() => validaEndereco()}></Button >
           </div>
           : null
       }
