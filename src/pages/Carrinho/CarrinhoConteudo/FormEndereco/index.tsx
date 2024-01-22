@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FormCep from "./FormCep";
 import useEnderecoContext from "@/hooks/useEnderecoContext";
 import CampoTexto from "./CampoTexto";
+import SelectUF from "./SelectUF";
 
 export default function FormEndereco() {
 
@@ -19,7 +20,7 @@ export default function FormEndereco() {
   const [numero, setNumero] = useState('');
   const [cidade, setCidade] = useState('');
   const [complemento, setComplemento] = useState('');
-  const [estado, setEstado] = useState('');
+  const [estado, setEstado] = useState('...');
 
   useEffect(() => {
     setCep(endereco.cep);
@@ -29,7 +30,7 @@ export default function FormEndereco() {
     setNumero(endereco.numero);
     setCidade(endereco.cidade);
     setComplemento(endereco.complemento);
-    setEstado(endereco.UF)
+    setEstado(endereco.UF);
   }, [endereco])
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -37,16 +38,20 @@ export default function FormEndereco() {
     buscaCep(cep);
   }
 
+  function handleSelectChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const estadoSelecionado = e.target.value
+    setEstado(estadoSelecionado)
+  }
+
   return (
-    <div className="overflow-auto lg:overflow-hidden h-full">
+    <div className="overflow-auto h-full">
       <h2 className="text-xl text-black font-semibold lg:mb-10">Endereço de entrega: </h2>
-      <div className="flex flex-col items-center lg:items-start lg:h-full gap-3 lg:gap-10 mb-5 pr-5">
+      <div className="flex flex-col items-center lg:items-start lg:h-fit lg:w-full gap-3 lg:gap-10 mb-5 pr-5">
         <FormCep
           label="CEP:"
           key={"input-cep"}
           placeholder="Insira seu CEP..."
           btn
-          tipo="number"
           obrigatorio
           value={cep}
           action={(e) => setCep(e.target.value)}
@@ -78,7 +83,6 @@ export default function FormEndereco() {
           <CampoTexto
             label="Número:"
             placeholder="Nº"
-            tipo="number"
             key={"input-numero"}
             campo="numero"
             value={numero}
@@ -107,15 +111,15 @@ export default function FormEndereco() {
             action={(e) => setComplemento(e.target.value)}
           />
 
-          <CampoTexto
+          <SelectUF
             label="UF:"
-            placeholder="..."
-            key={"input-estado"}
             campo="UF"
-            value={estado}
-            action={(e) => setEstado(e.target.value)}
             obrigatorio
+            key={'select-uf'}
+            value={estado}
+            action={handleSelectChange}
           />
+
         </div>
 
       </div>

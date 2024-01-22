@@ -1,24 +1,15 @@
+import ufList from "@/data/uf-list.json"
 import useEnderecoContext from "@/hooks/useEnderecoContext";
 
-interface CampoTextoProps {
+interface SelectUFProps {
   label: string;
-  placeholder: string;
   value: string | undefined;
   campo: string;
-  tamanho?: "sm" | "md" | "lg";
   obrigatorio?: boolean;
-  action: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  action: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export default function CampoTexto({
-  label,
-  placeholder,
-  value,
-  campo,
-  obrigatorio = false,
-  action
-  // tamanho
-}: CampoTextoProps) {
+export default function SelectUF({ label, value = "...", campo, obrigatorio = false, action }: SelectUFProps) {
   const contexto = useEnderecoContext();
 
   if (!contexto) {
@@ -26,20 +17,19 @@ export default function CampoTexto({
   }
 
   const { alteraCampo } = contexto;
-
+  
   return (
     <div className={`w-full lg:w-3/5 flex flex-col mt-3`}>
       <span className="font-medium text-text">{label}</span>
       <div className="relative w-full shadow-padrao h-12 md:h-14 rounded-2xl flex items-center justify-between px-4 mt-3">
-        <input
-          className="text-base font-medium w-full outline-none appearance-none"
-          type='text'
-          placeholder={placeholder}
-          onBlur={() => alteraCampo(campo, value)}
+        <select className="w-full"
+          onChange={(e) => action(e)}
           value={value}
-          onChange={action}
           required={obrigatorio}
-        />
+          onBlur={() => alteraCampo(campo, value)}
+        >
+          {ufList.map(uf => <option key={`uf-${uf}`}>{uf}</option>)}
+        </select>
       </div>
     </div>
   )

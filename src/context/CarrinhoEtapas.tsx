@@ -13,6 +13,7 @@ interface CarrinhoEtapaProvider {
 }
 
 export const CarrinhoEtapaContext = createContext<CarrinhoEtapaContext | undefined>(undefined)
+CarrinhoEtapaContext.displayName = "Etapas do Carrinho";
 
 export const CarrinhoEtapaProvider = ({ children }: CarrinhoEtapaProvider) => {
   const [etapas, setEtapas] = useState(

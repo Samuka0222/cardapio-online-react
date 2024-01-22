@@ -4,7 +4,6 @@ import { createContext, useState } from "react";
 interface CarrinhoContextProps {
   carrinho: ICarrinho[];
   setCarrinho: React.Dispatch<React.SetStateAction<ICarrinho[]>>
-  // addProduto: (prato: IPrato) => void;
 }
 
 interface CarrinhoProviderProps {
@@ -12,6 +11,7 @@ interface CarrinhoProviderProps {
 }
 
 export const CarrinhoContext = createContext<CarrinhoContextProps | undefined>(undefined)
+CarrinhoContext.displayName = "Carrinho" 
 
 export const CarrinhoProvider = ({ children }: CarrinhoProviderProps) => {
   const [carrinho, setCarrinho] = useState<ICarrinho[]>([])

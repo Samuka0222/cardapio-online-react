@@ -15,25 +15,14 @@ interface MensagemProviderProps {
 }
 
 export const MensagemContexto = createContext<MensagemContextoProps | undefined>(undefined);
+MensagemContexto.displayName = "Mensagem"
 
 export const MensagemProvider = ({ children }: MensagemProviderProps) => {
   const [mensagem, setMensagem] = useState({
     tipo: '',
     texto: ''
   })
-
-  // useEffect(() => {
-  //   const resetTimeout = setTimeout(() => {
-  //     setMensagem({
-  //       tipo: '',
-  //       texto: ''
-  //     })
-  //   }, 4400)
-
-  //   return () => {
-  //     clearTimeout(resetTimeout)
-  //   }
-  // }, [mensagem])
+  
 
   return (
     <MensagemContexto.Provider value={{mensagem, setMensagem}}>

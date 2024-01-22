@@ -3,7 +3,9 @@ import { createContext, useState } from "react";
 
 interface EnderecoContextProps {
   endereco: IEndereco;
-  setEndereco: React.Dispatch<React.SetStateAction<IEndereco>>
+  setEndereco: React.Dispatch<React.SetStateAction<IEndereco>>;
+  enderecoValido: boolean;
+  setEnderecoValido: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface EnderecoProviderProps {
@@ -11,6 +13,7 @@ interface EnderecoProviderProps {
 }
 
 export const EnderecoContext = createContext<EnderecoContextProps | undefined>(undefined);
+EnderecoContext.displayName = "Endereco";
 
 export const EnderecoProvider = ({ children }: EnderecoProviderProps) => {
   const [endereco, setEndereco] = useState<IEndereco>(
@@ -25,8 +28,10 @@ export const EnderecoProvider = ({ children }: EnderecoProviderProps) => {
     }
   )
 
+  const [enderecoValido, setEnderecoValido] = useState(false)
+
   return (
-    <EnderecoContext.Provider value={{ endereco, setEndereco }}>
+    <EnderecoContext.Provider value={{ endereco, setEndereco, enderecoValido, setEnderecoValido }}>
       {children}
     </EnderecoContext.Provider>
   )

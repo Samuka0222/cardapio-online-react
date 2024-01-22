@@ -17,6 +17,7 @@ interface CardapioProviderProps {
 }
 
 export const CardapioContext = createContext<CardapioContextProps | undefined>(undefined);
+CardapioContext.displayName = "Cardápio";
 
 export const CardapioProvider = ({ children }: CardapioProviderProps) => {
 
