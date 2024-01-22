@@ -1,4 +1,4 @@
-import { EnderecoContext } from "@/context/contextoPedido/EnderecoContext";
+import { EnderecoContext } from "@/context/EnderecoContext";
 import IEndereco from "@/interfaces/IEndereco";
 import axios from "axios";
 import { useContext } from "react"

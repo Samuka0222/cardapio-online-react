@@ -1,4 +1,4 @@
-import { CarrinhoContext } from "@/context/contextoPedido/CarrinhoContext";
+import { CarrinhoContext } from "@/context/CarrinhoContext";
 import IPrato from "@/interfaces/IPrato";
 import { useContext, useEffect, useState } from "react";
 

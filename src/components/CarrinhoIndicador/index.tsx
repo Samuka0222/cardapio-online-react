@@ -1,4 +1,5 @@
 import useCarrinhoContext from "@/hooks/useCarrinhoContext"
+import ICarrinho from "@/interfaces/ICarrinho";
 import { useEffect, useState } from "react"
 
 export default function CarrinhoIndicador() {
@@ -13,7 +14,7 @@ export default function CarrinhoIndicador() {
 
   useEffect(() => {
     setQtdCarrinho(
-      carrinho.reduce((total, item) => {
+      carrinho.reduce((total: number, item: ICarrinho) => {
         return total + item.qtd
       }, 0)
     )
