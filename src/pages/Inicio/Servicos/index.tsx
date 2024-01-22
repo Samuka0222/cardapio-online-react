@@ -16,7 +16,7 @@ export default function Servicos() {
         titulo="Serviços"
         descricao="Como são nossos serviços?"
       />
-      <div ref={ref} className={`flex flex-col gap-16 lg:gap-0 lg:flex-row ${animacaoServicos}`}>
+      <div ref={ref} className={`flex flex-col gap-16 lg:gap-0 ${animacaoServicos}`}>
         <Bloco
           caminho="/img/icone-pedido.svg"
           descricaoImagem="Mulher olhando para celular"
