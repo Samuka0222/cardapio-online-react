@@ -1,4 +1,4 @@
-import logo from "@/assets/img/logo.png"
+import logo from "/img/logo.png"
 import Sociais from "../Sociais"
 
 export default function Footer() {

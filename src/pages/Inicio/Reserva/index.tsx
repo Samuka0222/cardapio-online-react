@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 import TituloSecao from "../TituloSecao";
-import reserva from "@/assets/img/icone-reserva.svg"
+import reserva from "/img/icone-reserva.svg"
 import fazerReserva from "@/utils/fazerReserva";
 import { useInView } from "react-intersection-observer";
 

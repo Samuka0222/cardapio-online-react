@@ -1,4 +1,4 @@
-import img from "@/assets/img/burguer.png"
+import img from "/img/burguer.png"
 import Button from "@/components/Button"
 import { faPhone } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "react-router-dom"

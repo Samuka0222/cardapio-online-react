@@ -1,4 +1,4 @@
-import logo from "@/assets/img/logo.png"
+import logo from "/img/logo.png"
 import { faBagShopping } from "@fortawesome/free-solid-svg-icons"
 import LinkBtn from "@/components/LinkBtn"
 import { useInView } from "react-intersection-observer"

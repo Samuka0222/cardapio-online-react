@@ -3,7 +3,7 @@ import TituloSecao from "../TituloSecao";
 import Depoimento from "./Depoimento";
 import DepoimentoBtn from "./DepoimentoBtn";
 import depoimentos from "@/data/depoimentos.json"
-import imagemPizza from "@/assets/img/pizzas.png"
+import imagemPizza from "/img/pizzas.png"
 import { useInView } from "react-intersection-observer";
 export default function Depoimentos() {
   const [depoimentoSelecionado, setDepoimentoSelecionado] = useState(1)

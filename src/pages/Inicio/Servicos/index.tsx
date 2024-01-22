@@ -18,7 +18,7 @@ export default function Servicos() {
       />
       <div ref={ref} className={`flex flex-col gap-16 lg:gap-0 lg:flex-row ${animacaoServicos}`}>
         <Bloco
-          caminho="src/assets/img/icone-pedido.svg"
+          caminho="/img/icone-pedido.svg"
           descricaoImagem="Mulher olhando para celular"
           titulo="Fácil de pedir"
           descricaoServico="Você só precisa de alguns passos para pedir sua comida."
@@ -26,14 +26,14 @@ export default function Servicos() {
           diminuirImagem
         />
         <Bloco
-          caminho="src/assets/img/icone-delivery.svg"
+          caminho="/img/icone-delivery.svg"
           descricaoImagem="mulher de moto levando comida"
           titulo="Entrega rápida"
           descricaoServico="Nossa entrega é sempre pontual, rápida e segura."
           key={2}
         />
         <Bloco
-          caminho="src/assets/img/icone-qualidade.svg"
+          caminho="/img/icone-qualidade.svg"
           descricaoImagem="Prato de comida"
           titulo="Melhor qualidade"
           descricaoServico="Não só a rapidez na entrega, a qualidade também é o nosso forte."
